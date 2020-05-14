@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E40BEAC1246BDA2700C15396 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40BEAC0246BDA2700C15396 /* RegistrationController.swift */; };
+		E40BEAC3246BE48100C15396 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40BEAC2246BE48100C15396 /* TextButton.swift */; };
+		E40BEAC5246CED8500C15396 /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40BEAC4246CED8500C15396 /* ResetPasswordController.swift */; };
 		E451000324684BA10015EAD5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451000224684BA10015EAD5 /* Extensions.swift */; };
 		E4AAA304246BA20E003C7327 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AAA303246BA20E003C7327 /* CustomTextField.swift */; };
 		E4AAA306246BB131003C7327 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AAA305246BB131003C7327 /* AuthButton.swift */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E40BEAC0246BDA2700C15396 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		E40BEAC2246BE48100C15396 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
+		E40BEAC4246CED8500C15396 /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		E451000224684BA10015EAD5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E4AAA303246BA20E003C7327 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		E4AAA305246BB131003C7327 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
@@ -94,6 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				E4CF805D2465A432002C87E1 /* LoginController.swift */,
+				E40BEAC0246BDA2700C15396 /* RegistrationController.swift */,
+				E40BEAC4246CED8500C15396 /* ResetPasswordController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -111,6 +119,7 @@
 				E4AAA303246BA20E003C7327 /* CustomTextField.swift */,
 				E4AAA305246BB131003C7327 /* AuthButton.swift */,
 				E4AAA307246BC4EA003C7327 /* DividerView.swift */,
+				E40BEAC2246BE48100C15396 /* TextButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,10 +211,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E451000324684BA10015EAD5 /* Extensions.swift in Sources */,
+				E40BEAC1246BDA2700C15396 /* RegistrationController.swift in Sources */,
 				E4AAA306246BB131003C7327 /* AuthButton.swift in Sources */,
 				E4CF80452465A3BB002C87E1 /* ViewController.swift in Sources */,
 				E4AAA304246BA20E003C7327 /* CustomTextField.swift in Sources */,
 				E4CF805E2465A432002C87E1 /* LoginController.swift in Sources */,
+				E40BEAC5246CED8500C15396 /* ResetPasswordController.swift in Sources */,
+				E40BEAC3246BE48100C15396 /* TextButton.swift in Sources */,
 				E4CF80412465A3BB002C87E1 /* AppDelegate.swift in Sources */,
 				E4AAA308246BC4EA003C7327 /* DividerView.swift in Sources */,
 				E4CF80432465A3BB002C87E1 /* SceneDelegate.swift in Sources */,

@@ -23,25 +23,20 @@ class LoginController: UIViewController {
     
     private let loginButton: AuthButton = {
         let button = AuthButton(type: .system)
+        button.title = "Log in"
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
     
-    private let forgotPasswordButton: UIButton = {
-        let button = UIButton(type: .system)
-
-        let foreFont: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor(white: 1, alpha: 0.87), .font: UIFont.systemFont(ofSize: 15)]
-        let backFont: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor(white: 1, alpha: 0.87), .font: UIFont.boldSystemFont(ofSize: 15)]
-        let attributedTitle = NSMutableAttributedString(string: "Forgot your password? ", attributes: foreFont)
-        attributedTitle.append(NSAttributedString(string: "Get help signing in", attributes: backFont))
-        
-        button.setAttributedTitle(attributedTitle, for: .normal)
+    private let forgotPasswordButton: TextButton = {
+        let button = TextButton(type: .system)
+        button.foreTitle = "Forgot your password? "
+        button.backTitle = "Get help signing in"
         button.addTarget(self, action: #selector(showForgotPassword), for: .touchUpInside)
-
         return button
     }()
-    
+
     private let dividerView = DividerView()
     
     private let googleLoginButton: UIButton = {
@@ -55,24 +50,17 @@ class LoginController: UIViewController {
         return button
     }()
     
-    private let dontHaveAccountButton: UIButton = {
-        let button = UIButton(type: .system)
-        
-        let foreFont: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor(white: 1, alpha: 0.87), .font: UIFont.systemFont(ofSize: 15)]
-        let backFont: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor(white: 1, alpha: 0.87), .font: UIFont.boldSystemFont(ofSize: 15)]
-        let attributedTitle = NSMutableAttributedString(string: "Don't have an account? ", attributes: foreFont)
-        attributedTitle.append(NSAttributedString(string: "Sign Up", attributes: backFont))
-        
-        button.setAttributedTitle(attributedTitle, for: .normal)
-        button.addTarget(self, action: #selector(handleDontHaveAccount), for: .touchUpInside)
-        
+    private let dontHaveAccountButton: TextButton = {
+        let button = TextButton(type: .system)
+        button.foreTitle = "Don't have an account? "
+        button.backTitle = "Sign Up"
+        button.addTarget(self, action: #selector(showRegistrationController), for: .touchUpInside)
         return button
     }()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureUI()
         
     }
@@ -90,8 +78,9 @@ class LoginController: UIViewController {
         print("click! google!")
     }
     
-    @objc func handleDontHaveAccount() {
-        print("Click! Don't have account!")
+    @objc func showRegistrationController() {
+        let controller = RegistrationController()
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     // MARK: - Helper
@@ -134,6 +123,7 @@ class LoginController: UIViewController {
         view.addSubview(secondStack)
         secondStack.anchor(top: stack.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 24, paddingLeft: 32, paddingRight: 32)
         
+        // MARK: - Don't have an account Button
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.centerX(inView: view)
         dontHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, paddingBottom: 10)
