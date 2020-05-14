@@ -95,6 +95,19 @@ extension UIView {
                bottom: superviewBottomAnchor, right: superviewTrailingAnchor)
     }
 }
+
+extension UIViewController {
+    // MARK: - Gradient Layer
+    func configureGradientBackground() {
+        // 그레디언트 인스턴스 from Core Animation
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemBlue.cgColor]
+        gradient.locations = [0, 1]
+        view.layer.addSublayer(gradient)
+        gradient.frame = view.frame
+    }
+}
+
 //
 //extension UIViewController {
 //    static let hud = JGProgressHUD(style: .dark)

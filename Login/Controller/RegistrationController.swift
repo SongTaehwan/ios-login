@@ -55,12 +55,7 @@ class RegistrationController: UIViewController {
     
     // MARK: - Helpers
     func configureUI() {
-
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemBlue.cgColor]
-        gradient.locations = [0, 1]
-        view.layer.addSublayer(gradient)
-        gradient.frame = view.frame
+        configureGradientBackground()
         
         view.addSubview(iconImage)
         iconImage.translatesAutoresizingMaskIntoConstraints = false

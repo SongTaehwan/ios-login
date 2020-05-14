@@ -71,7 +71,8 @@ class LoginController: UIViewController {
     }
     
     @objc func showForgotPassword() {
-        print("click! Forgot password ")
+        let controller = ResetPassswordController()
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     @objc func handleGoogleLogin() {
@@ -93,14 +94,8 @@ class LoginController: UIViewController {
         // .default -> 하얀 배경에 검정 글씨, .black -> 검정 배경에 흰 글씨
         navigationController?.navigationBar.barStyle = .black
     
-        // MARK: - Gradient Layer
-        // 그라디언트 인스턴스 from Core Animation
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemBlue.cgColor]
-        gradient.locations = [0, 1]
-        view.layer.addSublayer(gradient)
-        gradient.frame = view.frame
-        
+        configureGradientBackground()
+
         // MARK: - Icon Image
         // View에 icon image 붙이기
         view.addSubview(iconImage)

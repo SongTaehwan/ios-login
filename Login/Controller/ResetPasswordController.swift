@@ -20,6 +20,14 @@ class ResetPassswordController: UIViewController {
         return button
     }()
     
+    private let backButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.tintColor = .white
+        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        button.addTarget(self, action: #selector(handleDismissal), for: .touchUpInside)
+        return button
+    }()
+    
     // MARK: - Lifectycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +38,19 @@ class ResetPassswordController: UIViewController {
     @objc func handleResetPassword() {
         
     }
+    
+    @objc func handleDismissal() {
+        navigationController?.popViewController(animated: true)
+    }
         
     // MARK: - Helpers
     func configureUI() {
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemBlue.cgColor]
-        gradient.locations = [0, 1]
-        view.layer.addSublayer(gradient)
-        gradient.frame = view.frame
+        configureGradientBackground()
+        
+        view.addSubview(backButton)
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16).isActive = true
+        backButton.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16).isActive = true
         
         view.addSubview(iconImage)
         iconImage.translatesAutoresizingMaskIntoConstraints = false
