@@ -10,6 +10,8 @@ import UIKit
 
 class RegistrationController: UIViewController {
     // MARK: - Properties
+    private var viewModel = RegistrationViewModel()
+
     private let iconImage = UIImageView(image: #imageLiteral(resourceName: "firebase-logo"))
     private let emailTextField = CustomTextField(placeholder: "Email")
     private let fullnameTextField = CustomTextField(placeholder: "Fullname")
@@ -42,6 +44,7 @@ class RegistrationController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureNotificationObservers()
     }
     
     // MARK: - Selectors
@@ -51,6 +54,19 @@ class RegistrationController: UIViewController {
     
     @objc func showLoginController() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func textDidChange(_ sender: UITextField) {
+        if emailTextField == sender {
+            viewModel.email = sender.text
+        } else if passwordTextField == sender {
+            viewModel.password = sender.text
+        } else {
+            viewModel.fullname = sender.text
+        }
+        
+        print("DEBUG: Form is valid \(viewModel.formIsValid)")
+        updateForm()
     }
     
     // MARK: - Helpers
@@ -79,5 +95,20 @@ class RegistrationController: UIViewController {
         alreadyHaveAccount.translatesAutoresizingMaskIntoConstraints = false
         alreadyHaveAccount.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         alreadyHaveAccount.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+    }
+    
+    func configureNotificationObservers() {
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        fullnameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
+}
+
+// MARK: - FormViewModel
+extension RegistrationController: FormViewModel {
+    func updateForm() {
+        signUpButton.isEnabled = viewModel.shouldEnableButton
+        signUpButton.backgroundColor = viewModel.buttonBackgroundColor
+        signUpButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
     }
 }

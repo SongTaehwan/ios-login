@@ -10,6 +10,8 @@ import UIKit
 
 class ResetPassswordController: UIViewController {
     // MARK: - Properties
+    private var viewModel = ResetPasswordViewModel()
+    
     private let iconImage = UIImageView(image: #imageLiteral(resourceName: "firebase-logo"))
     private let emailTextField = CustomTextField(placeholder: "Email")
     private let resetPasswordButton: AuthButton = {
@@ -32,6 +34,7 @@ class ResetPassswordController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureNotificationObservers()
     }
 
     // MARK: - Selectors
@@ -41,6 +44,14 @@ class ResetPassswordController: UIViewController {
     
     @objc func handleDismissal() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func textDidChange(_ sender: UITextField) {
+        if emailTextField == sender {
+            viewModel.email = sender.text
+        }
+
+        updateForm()
     }
         
     // MARK: - Helpers
@@ -68,5 +79,18 @@ class ResetPassswordController: UIViewController {
         stack.topAnchor.constraint(equalTo: iconImage.bottomAnchor, constant: 32).isActive = true
         stack.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32).isActive = true
         stack.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32).isActive = true
+    }
+    
+    func configureNotificationObservers() {
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
+}
+
+// MARK: - FormViewModel
+extension ResetPassswordController: FormViewModel {
+    func updateForm() {
+        resetPasswordButton.isEnabled = viewModel.shouldEnableButton
+        resetPasswordButton.backgroundColor = viewModel.buttonBackgroundColor
+        resetPasswordButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
     }
 }

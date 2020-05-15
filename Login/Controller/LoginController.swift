@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol FormViewModel {
+    func updateForm()
+}
+
 class LoginController: UIViewController {
     // MARK: - Properties
 
+    private var viewModel = LoginViewModel()
+
     private let iconImage = UIImageView(image: #imageLiteral(resourceName: "firebase-logo"))
-    
     private let emailTextField = CustomTextField(placeholder: "Email")
     
     private let passwordTextField: CustomTextField = {
@@ -62,7 +67,7 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        
+        configureNotificationObservers()
     }
     
     // MARK: - Selector
@@ -82,6 +87,17 @@ class LoginController: UIViewController {
     @objc func showRegistrationController() {
         let controller = RegistrationController()
         navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    @objc func textDidChange(_ sender: UITextField) {
+        if emailTextField == sender {
+            viewModel.email = sender.text
+        } else {
+            viewModel.password = sender.text
+        }
+        
+        print("DEBUG: Form is valid \(viewModel.formIsValid)")
+        updateForm()
     }
     
     // MARK: - Helper
@@ -126,5 +142,19 @@ class LoginController: UIViewController {
 //        dontHaveAccountButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 //        dontHaveAccountButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
 
+    }
+    
+    func configureNotificationObservers() {
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
+}
+
+// MARK: - FormViewModel
+extension LoginController: FormViewModel {
+    func updateForm() {
+        loginButton.isEnabled = viewModel.shouldEnableButton
+        loginButton.backgroundColor = viewModel.buttonBackgroundColor
+        loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
     }
 }

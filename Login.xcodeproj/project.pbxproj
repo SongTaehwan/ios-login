@@ -11,6 +11,7 @@
 		E40BEAC3246BE48100C15396 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40BEAC2246BE48100C15396 /* TextButton.swift */; };
 		E40BEAC5246CED8500C15396 /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40BEAC4246CED8500C15396 /* ResetPasswordController.swift */; };
 		E451000324684BA10015EAD5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451000224684BA10015EAD5 /* Extensions.swift */; };
+		E4943CDA246E2D810006763A /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4943CD9246E2D810006763A /* AuthenticationViewModel.swift */; };
 		E4AAA304246BA20E003C7327 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AAA303246BA20E003C7327 /* CustomTextField.swift */; };
 		E4AAA306246BB131003C7327 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AAA305246BB131003C7327 /* AuthButton.swift */; };
 		E4AAA308246BC4EA003C7327 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AAA307246BC4EA003C7327 /* DividerView.swift */; };
@@ -28,6 +29,7 @@
 		E40BEAC2246BE48100C15396 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		E40BEAC4246CED8500C15396 /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		E451000224684BA10015EAD5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E4943CD9246E2D810006763A /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthenticationViewModel.swift; path = Login/Controller/AuthenticationViewModel.swift; sourceTree = SOURCE_ROOT; };
 		E4AAA303246BA20E003C7327 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		E4AAA305246BB131003C7327 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		E4AAA307246BC4EA003C7327 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		E4CF80592465A3DF002C87E1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E4943CD9246E2D810006763A /* AuthenticationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4943CDA246E2D810006763A /* AuthenticationViewModel.swift in Sources */,
 				E451000324684BA10015EAD5 /* Extensions.swift in Sources */,
 				E40BEAC1246BDA2700C15396 /* RegistrationController.swift in Sources */,
 				E4AAA306246BB131003C7327 /* AuthButton.swift in Sources */,
