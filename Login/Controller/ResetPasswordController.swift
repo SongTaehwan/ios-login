@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ResetPassswordController: UIViewController {
     // MARK: - Properties
@@ -57,7 +58,7 @@ class ResetPassswordController: UIViewController {
     // MARK: - Helpers
     func configureUI() {
         configureGradientBackground()
-        
+
         view.addSubview(backButton)
         backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16).isActive = true

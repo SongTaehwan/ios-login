@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
 protocol FormViewModel {
     func updateForm()
@@ -68,11 +70,24 @@ class LoginController: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureNotificationObservers()
+        configureGoogleSigIn()
     }
     
     // MARK: - Selector
     @objc func handleLogin() {
-        print("click!")
+        guard let email = viewModel.email else { return }
+        guard let password = viewModel.password else { return }
+            
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                print("Eror signing in \(error.localizedDescription)")
+                return
+            }
+            
+            print("Successfully logged in")
+            
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @objc func showForgotPassword() {
@@ -81,7 +96,7 @@ class LoginController: UIViewController {
     }
     
     @objc func handleGoogleLogin() {
-        print("click! google!")
+        GIDSignIn.sharedInstance()?.signIn()
     }
     
     @objc func showRegistrationController() {
@@ -148,6 +163,11 @@ class LoginController: UIViewController {
         emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
+    
+    func configureGoogleSigIn() {
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance()?.delegate = self
+    }
 }
 
 // MARK: - FormViewModel
@@ -156,5 +176,11 @@ extension LoginController: FormViewModel {
         loginButton.isEnabled = viewModel.shouldEnableButton
         loginButton.backgroundColor = viewModel.buttonBackgroundColor
         loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+    }
+}
+
+extension LoginController: GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        print("Google sign in")
     }
 }

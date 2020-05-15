@@ -24,6 +24,8 @@ class CustomTextField: UITextField {
         self.backgroundColor = UIColor(white: 1, alpha: 0.1)
         self.textColor = UIColor(white: 1, alpha: 1)
         self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: UIColor(white: 1, alpha: 0.7)])
+        self.autocorrectionType = .no
+        self.autocapitalizationType = .none
 
     }
     
