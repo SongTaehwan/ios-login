@@ -77,8 +77,8 @@ class LoginController: UIViewController {
     @objc func handleLogin() {
         guard let email = viewModel.email else { return }
         guard let password = viewModel.password else { return }
-            
-        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+        
+        Service.logUserIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 print("Eror signing in \(error.localizedDescription)")
                 return
@@ -181,6 +181,13 @@ extension LoginController: FormViewModel {
 
 extension LoginController: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        print("Google sign in")
+        Service.signInWithGoogle(didSignFor: user) { (err, ref) in
+            if let error = err {
+                print("DEBUG: Failed to sign in with google: \(error)")
+                return
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }

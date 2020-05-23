@@ -11,7 +11,6 @@ import UIKit
 class DividerView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         let label = UILabel()
         label.text = "OR"
         label.textColor = UIColor(white: 1, alpha: 0.87)

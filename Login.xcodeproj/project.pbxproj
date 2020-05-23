@@ -11,8 +11,9 @@
 		E40BEAC1246BDA2700C15396 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40BEAC0246BDA2700C15396 /* RegistrationController.swift */; };
 		E40BEAC3246BE48100C15396 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40BEAC2246BE48100C15396 /* TextButton.swift */; };
 		E40BEAC5246CED8500C15396 /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40BEAC4246CED8500C15396 /* ResetPasswordController.swift */; };
-		E41B0304246E842100B3D0B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E41B0303246E842100B3D0B3 /* GoogleService-Info.plist */; };
 		E41B0306246E858C00B3D0B3 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B0305246E858C00B3D0B3 /* HomeController.swift */; };
+		E41B0308246E9A5700B3D0B3 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B0307246E9A5700B3D0B3 /* Service.swift */; };
+		E4401EAA24712C38009C34B6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4401EA924712C38009C34B6 /* GoogleService-Info.plist */; };
 		E451000324684BA10015EAD5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451000224684BA10015EAD5 /* Extensions.swift */; };
 		E4943CDA246E2D810006763A /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4943CD9246E2D810006763A /* AuthenticationViewModel.swift */; };
 		E4AAA304246BA20E003C7327 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AAA303246BA20E003C7327 /* CustomTextField.swift */; };
@@ -36,6 +37,8 @@
 		E40BEAC4246CED8500C15396 /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		E41B0303246E842100B3D0B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E41B0305246E858C00B3D0B3 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		E41B0307246E9A5700B3D0B3 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Service.swift; path = Login/Controller/Service.swift; sourceTree = SOURCE_ROOT; };
+		E4401EA924712C38009C34B6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Login/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E451000224684BA10015EAD5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E4943CD9246E2D810006763A /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthenticationViewModel.swift; path = Login/Controller/AuthenticationViewModel.swift; sourceTree = SOURCE_ROOT; };
 		E4AAA303246BA20E003C7327 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 		E4CF80342465A3BA002C87E1 = {
 			isa = PBXGroup;
 			children = (
+				E4401EA924712C38009C34B6 /* GoogleService-Info.plist */,
 				E4CF803F2465A3BB002C87E1 /* Login */,
 				E4CF803E2465A3BB002C87E1 /* Products */,
 				F590C918B7E2759363EA9003 /* Pods */,
@@ -106,6 +110,7 @@
 		E4CF80542465A3D2002C87E1 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				E41B0307246E9A5700B3D0B3 /* Service.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -233,8 +238,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4401EAA24712C38009C34B6 /* GoogleService-Info.plist in Resources */,
 				E4CF804D2465A3BC002C87E1 /* LaunchScreen.storyboard in Resources */,
-				E41B0304246E842100B3D0B3 /* GoogleService-Info.plist in Resources */,
 				E4CF804A2465A3BC002C87E1 /* Assets.xcassets in Resources */,
 				E4CF80482465A3BB002C87E1 /* Main.storyboard in Resources */,
 			);
@@ -307,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4943CDA246E2D810006763A /* AuthenticationViewModel.swift in Sources */,
+				E41B0308246E9A5700B3D0B3 /* Service.swift in Sources */,
 				E451000324684BA10015EAD5 /* Extensions.swift in Sources */,
 				E40BEAC1246BDA2700C15396 /* RegistrationController.swift in Sources */,
 				E4AAA306246BB131003C7327 /* AuthButton.swift in Sources */,
