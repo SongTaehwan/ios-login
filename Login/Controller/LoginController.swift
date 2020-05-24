@@ -118,7 +118,6 @@ class LoginController: UIViewController {
     // MARK: - Helper
     func configureUI() {
         // MARK: - navigation configuration
-        // Navigation bar 숨김 여부
         navigationController?.navigationBar.isHidden = true
         
         // barStytle: bar 배경색을 정의
@@ -128,14 +127,12 @@ class LoginController: UIViewController {
         configureGradientBackground()
 
         // MARK: - Icon Image
-        // View에 icon image 붙이기
         view.addSubview(iconImage)
         iconImage.setDimensions(height: 120, width: 120)
         iconImage.centerX(inView: view)
         iconImage.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 32)
 
         // MARK: - Stack View
-        // Create Stack View
         let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton])
         stack.axis = .vertical
         stack.spacing = 20
@@ -153,9 +150,6 @@ class LoginController: UIViewController {
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.centerX(inView: view)
         dontHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, paddingBottom: 10)
-//        dontHaveAccountButton.translatesAutoresizingMaskIntoConstraints = false
-//        dontHaveAccountButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        dontHaveAccountButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
 
     }
     
